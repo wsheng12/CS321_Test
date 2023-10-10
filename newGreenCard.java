@@ -1,20 +1,18 @@
-public class newGreenCard{
+public class NewGreenCard{
 
-    String address;
-    String name;
-    String id;
+    private String address;
+    private String name;
+    private String id;
 
-    public void createNewGreenCard(String address, String name, String id){
+    public NewGreenCard(String address, String name, String id){
 
         this.address = address;
         this.name = name;
         this.id = id;
 
-
-
     }
 
-    public String validate(String address, String name, String id){
+    public boolean validate(String address, String name, String id){
         int count = 0;
 
         if(address == this.address){
@@ -35,23 +33,24 @@ public class newGreenCard{
 
         if(count == 3){
 
-            return "Valid";
+            return true;
 
         }
         else{
 
-            return "Invalid";
+            return false;
 
 
         }
     }
 
-    public newGreenCard getNGC(){
+    public NewGreenCard getNGC(){
 
         return this;
 
 
     }
+    
 
 
 
