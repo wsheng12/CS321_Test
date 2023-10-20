@@ -1,60 +1,53 @@
-public class NewGreenCard{
+public class NewGreenCard {
 
     private String address;
     private String name;
     private String id;
+    private String status;
 
     public NewGreenCard(String address, String name, String id){
+    }
 
-        this.address = address;
-        this.name = name;
-        this.id = id;
+    public boolean validate(boolean reviewer) {
+        return false;
+    }
+
+    public boolean dbAdd(){
+
+        return false;
 
     }
 
-    public boolean validate(String address, String name, String id){
-        int count = 0;
-
-        if(address == this.address){
-
-            count++;
-
-        }
-        if(name == this.name){
-
-            count++;
-
-        }
-        if(id == this.id){
-
-            count++;
-
-        }
-
-        if(count == 3){
-
-            return true;
-
-        }
-        else{
-
-            return false;
-
-
-        }
+    public NewGreenCard dbRetrieve(String id) {
+        return null;
     }
 
-    public NewGreenCard getNGC(){
-
-        return this;
-
-
+    public String getName() {
+        return null;
     }
-    
 
+    public String getId() {
+        return null;
+    }
 
+    public String getStatus() {
+        return null;
+    }
 
+    public String getAddress() {
+        return null;
+    }
 
+    public void setAddress(String address) {
+    }
 
+    public void setName(String name) {
+    }
+
+    public void setId(String id) {
+    }
+
+    public void setStatus(String status) {
+    }
 
 }
