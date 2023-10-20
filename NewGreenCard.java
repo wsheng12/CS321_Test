@@ -1,53 +1,79 @@
-public class NewGreenCard {
+import static org.junit.Assert.*;
+import org.junit.Test;
 
-    private String address;
-    private String name;
-    private String id;
-    private String status;
+public class NewGreenCardTest {
 
-    public NewGreenCard(String address, String name, String id){
+    @Test
+    public void argumentTypeTest() {
+
+        String address = "1234";
+        String name = "456";
+        String id = "12345";
+
+        NewGreenCard greenCard = new NewGreenCard(address, name, id);
+
+        assertEquals(greenCard.getAddress() instanceof String, true);
+        assertEquals(greenCard.getName() instanceof String, true);
+        assertEquals(greenCard.getId() instanceof String, true);
+        assertEquals(greenCard.getStatus() instanceof String, true);
+
+
+    }
+    @Test
+    public void greenCardTypeTest() {
+
+        String address = "1234";
+        String name = "456";
+        String id = "12345";
+
+        NewGreenCard greenCard = new NewGreenCard(address, name, id);
+
+        assertEquals(greenCard instanceof NewGreenCard, true);
+
+    }
+    @Test
+    public void validationTest() {
+
+        String address = "1234";
+        String name = "456";
+        String id = "12345";
+
+        String fakeAddress = "4321";
+        String fakeName = "654";
+        String fakeId = "54321";
+
+        NewGreenCard greenCard = new NewGreenCard(address, name, id);
+        NewGreenCard falseGreenCard = new NewGreenCard(fakeAddress, fakeName, fakeId);
+
+        assertEquals(greenCard.validate(true), true);
+        assertEquals(falseGreenCard.validate(true), false);
+
+        assertEquals(greenCard.validate(false), true);
+        assertEquals(falseGreenCard.validate(false), false);
+    }
+    @Test
+    public void dbRetrievalTest() {
+
+        String address = "1234";
+        String name = "456";
+        String id = "12345";
+
+        String fakeAddress = "4321";
+        String fakeName = "654";
+        String fakeId = "54321";
+
+        NewGreenCard greenCard = new NewGreenCard(address, name, id);
+        NewGreenCard falseGreenCard = new NewGreenCard(fakeAddress, fakeName, fakeId);
+
+        assertEquals(greenCard.dbRetrieve(greenCard.getId()) == greenCard, true);
+        assertEquals(greenCard.dbRetrieve(greenCard.getId()) == falseGreenCard, false);
+
     }
 
-    public boolean validate(boolean reviewer) {
-        return false;
-    }
+    @Test
+    public void dbAddTest() {
 
-    public boolean dbAdd(){
-
-        return false;
+        
 
     }
-
-    public NewGreenCard dbRetrieve(String id) {
-        return null;
-    }
-
-    public String getName() {
-        return null;
-    }
-
-    public String getId() {
-        return null;
-    }
-
-    public String getStatus() {
-        return null;
-    }
-
-    public String getAddress() {
-        return null;
-    }
-
-    public void setAddress(String address) {
-    }
-
-    public void setName(String name) {
-    }
-
-    public void setId(String id) {
-    }
-
-    public void setStatus(String status) {
-    }
-
 }
